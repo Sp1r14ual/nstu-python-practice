@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-df = pd.read_csv('./Iris/iris.csv')
+df = pd.read_csv(
+    r"C:\Users\Sp1r14ual\Desktop\nstu-python-practice\Lab 3\iris.csv")
 
 # выводим корреляцию для всей таблицы
 corr = df.corr(numeric_only=True)
@@ -12,6 +13,7 @@ print(grouped_corr)
 # корелляция 2х категориальных признаков
 sepal_corr = df['sepal.length'].corr(df['sepal.width'])
 petal_corr = df['petal.length'].corr(df['petal.width'])
+print()
 print(f'sepal_corr: {sepal_corr}')
 print(f'petal_corr: {petal_corr}', '\n')
 
@@ -20,6 +22,7 @@ sepal_class_corr = df.groupby(
     'variety')[['sepal.length', 'sepal.width']].corr().unstack().iloc[:, 1]
 petal_class_corr = df.groupby(
     'variety')[['petal.length', 'petal.width']].corr().unstack().iloc[:, 1]
+print()
 print(sepal_class_corr, '\n')
 print(petal_class_corr, '\n')
 
